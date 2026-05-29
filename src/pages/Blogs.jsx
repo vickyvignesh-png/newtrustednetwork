@@ -8,8 +8,12 @@ import styles from '../styles/Blog.module.css';
 import heroImg from '../assets/hero_networking.png';
 
 const CARDS_PER_ROW = 4;
-const INITIAL_COUNT = CARDS_PER_ROW * 2; // First 8 blogs
-const LOAD_MORE = CARDS_PER_ROW; // Load 4 more per click
+// Mobile‑only initial count (show 3 cards on ≤480px)
+const getInitialCount = () => (typeof window !== 'undefined' && window.innerWidth <= 480 ? 3 : CARDS_PER_ROW * 2);
+const INITIAL_COUNT = getInitialCount(); // 3 on mobile, 8 on larger screens
+const LOAD_MORE = CARDS_PER_ROW; // load a full row each click
+// Duplicate LOAD_MORE removed – original defined above
+
 
 const Blogs = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
@@ -20,14 +24,16 @@ const Blogs = () => {
     );
   };
 
-  const displayBlogs = blogs.slice(0, visibleCount);
+  const visibleBlogs = blogs.slice(0, visibleCount);
 
   const remainingBlogs = blogs.length - visibleCount;
   const rowsComplete = visibleCount % CARDS_PER_ROW === 0;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 480;
+  const shouldShowMore = (remainingBlogs > 0) && (isMobile || rowsComplete);
 
-  const shouldShowMore =
-    remainingBlogs > 0 &&
-    rowsComplete;
+  console.log("remainingBlogs:", remainingBlogs);
+  console.log("rowsComplete:", rowsComplete);
+  console.log("shouldShowMore:", shouldShowMore);
 
   return (
     <div className={styles.page}>
@@ -73,7 +79,7 @@ const Blogs = () => {
         id="blogs-list"
       >
         <div className={styles.grid}>
-          {displayBlogs.map((b) => (
+          {visibleBlogs.map((b) => (
             <BlogCard key={b.id} blog={b} />
           ))}
         </div>
