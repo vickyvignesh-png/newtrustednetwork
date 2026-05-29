@@ -7,7 +7,9 @@ import { events } from '../data/eventsData';
 import styles from "../styles/Events.module.css";
 
 const CARDS_PER_ROW = 4;
-const INITIAL_COUNT = CARDS_PER_ROW * 2; // show first two full rows (8 cards)
+// Mobile‑only initial count (show 3 cards on ≤480px)
+const getInitialCount = () => (typeof window !== 'undefined' && window.innerWidth <= 480 ? 3 : CARDS_PER_ROW * 2);
+const INITIAL_COUNT = getInitialCount(); // will be 3 on mobile, 8 on larger screens
 const LOAD_MORE = CARDS_PER_ROW; // load a full row each click
 
 const Events = () => {
@@ -26,17 +28,12 @@ const Events = () => {
 
   const visibleEvents = events.slice(0, visibleCount);
 
-  console.log("visibleCount:", visibleCount);
-  console.log("visibleEvents.length:", visibleEvents.length);
-  console.log("totalEvents:", events.length);
-
   const remainingEvents = events.length - visibleCount;
-  const currentRowCount = Math.ceil(visibleCount / CARDS_PER_ROW);
   const rowsComplete = visibleCount % CARDS_PER_ROW === 0;
-  // Show button only when there are hidden events and the current rows are complete
-  const shouldShowMore = (remainingEvents > 0) && rowsComplete;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 480;
+  const shouldShowMore = (remainingEvents > 0) && (isMobile || rowsComplete);
+
   console.log("remainingEvents:", remainingEvents);
-  console.log("currentRowCount:", currentRowCount);
   console.log("rowsComplete:", rowsComplete);
   console.log("shouldShowMore:", shouldShowMore);
 
