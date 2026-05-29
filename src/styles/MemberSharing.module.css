@@ -1,0 +1,253 @@
+/* ============================================
+   MEMBER SHARING — Glow List Card Layout
+   Using EXCLUSIVELY Brand Navy and Gold Colors
+   ============================================ */
+
+.shareSection {
+  background-color: #0a1628;
+  padding: 80px 24px;
+  /* py-20 px-6 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.shareContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shareTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 24px;
+  /* increased spacing for premium feel */
+}
+
+.shareDescription {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.70);
+  /* softer white opacity */
+  text-align: center;
+  max-width: 700px;
+  /* wider for readability */
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   PREMIUM LABEL — DOT + LINE + TEXT
+   ============================================ */
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.sectionLabel::before {
+  content: "";
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #C8A951;
+
+  box-shadow:
+    0 0 12px rgba(200, 169, 81, 0.4);
+
+  flex-shrink: 0;
+}
+
+/* LABEL CENTER ALIGN */
+
+.sectionLabelWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* LINE AFTER DOT */
+.sectionLabel .line {
+  width: 48px;
+  height: 1.5px;
+
+  background:
+    rgba(200, 169, 81, 0.7);
+}
+
+.sectionLabel span {
+  color: #C8A951;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  font-family: 'Poppins', sans-serif;
+
+  line-height: 1;
+}
+
+/* 2-column grid layout */
+.shareGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.shareCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 160, 60, 0.18);
+  border-radius: 16px;
+  padding: 14px 12px;
+  /* reduced side padding */
+  transition: all 0.3s ease;
+  width: auto;
+  /* shrink to content */
+  max-width: 100%;
+}
+
+.leftCard {
+  justify-content: flex-end;
+  text-align: right;
+  width: 420px;
+  margin-left: auto
+}
+
+.leftCard .cardTitle {
+  order: 1;
+}
+
+.leftCard .iconBox {
+  order: 2;
+}
+
+.rightCard {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  text-align: left;
+  width: 420px;
+  overflow: hidden;
+}
+
+.rightCard .iconBox {
+  order: 1;
+}
+
+.rightCard .cardTitle {
+  order: 2;
+  white-space: nowrap;
+  text-align: left;
+  /* allow full title without truncation */
+}
+
+/* display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 160, 60, 0.18);
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+} */
+
+/* On hover style rules */
+.shareCard:hover {
+  border-left: 3px solid #C8A03C;
+  background-color: rgba(200, 160, 60, 0.07);
+  border-color: rgba(200, 160, 60, 0.50);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Left Icon Box */
+.iconBox {
+  width: 58px;
+  height: 58px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.iconBox svg {
+  color: #D4AF37;
+  font-size: 24px;
+}
+
+.icon {
+  color: #C8A03C;
+  transition: transform 0.3s ease;
+}
+
+.shareCard:hover .icon {
+  transform: scale(1.05);
+}
+
+/* Right Content text details */
+.textDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shareCard:hover .cardTitle {
+  color: #E2B84B;
+}
+
+.cardSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+/* Responsive grid rules */
+@media (max-width: 768px) {
+  .shareGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .shareSection {
+    padding: 60px 16px;
+  }
+}
