@@ -12,3 +12,9 @@
   text-align: center;
   margin: 32px 0 48px 0; /* top 32px, bottom 48px */
 }
+
+@media (max-width: 480px) {
+  .page {
+    overflow-x: hidden;
+  }
+}
