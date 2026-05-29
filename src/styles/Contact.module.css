@@ -1,0 +1,257 @@
+/* Contact Section – Premium Modern Business UI */
+
+/* --------------------------------------------------- */
+/* Section Background */
+/* --------------------------------------------------- */
+.contactSection {
+  width: 100%;
+  background: linear-gradient(135deg,
+      #f8fbff 0%,
+      #ffffff 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft blur circles */
+.contactSection::before,
+.contactSection::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* Gold blur – top right */
+.contactSection::before {
+  width: 300px;
+  height: 300px;
+  background: rgba(200, 169, 81, 0.4);
+  top: -80px;
+  right: -120px;
+  transform: rotate(45deg);
+}
+
+/* Royal blue blur – bottom left */
+.contactSection::after {
+  width: 350px;
+  height: 350px;
+  background: rgba(9, 60, 114, 0.3);
+  bottom: -100px;
+  left: -150px;
+  transform: rotate(30deg);
+}
+
+/* --------------------------------------------------- */
+/* Wrapper */
+/* --------------------------------------------------- */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  /* keep above blur circles */
+}
+
+/* ============================================
+   PREMIUM LABEL — DOT + LINE + TEXT
+   ============================================ */
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.sectionLabel::before {
+  content: "";
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #C8A951;
+
+  box-shadow:
+    0 0 12px rgba(200, 169, 81, 0.4);
+
+  flex-shrink: 0;
+}
+
+/* LABEL CENTER ALIGN */
+
+.sectionLabelWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* LINE AFTER DOT */
+.sectionLabel .line {
+  width: 48px;
+  height: 1.5px;
+
+  background:
+    rgba(200, 169, 81, 0.7);
+}
+
+.sectionLabel span {
+  color: #C8A951;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  font-family: 'Poppins', sans-serif;
+
+  line-height: 1;
+}
+
+.smallHeading {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #C8A951;
+  /* Gold */
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(3rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #06152B;
+  /* Navy */
+  margin-bottom: 20px;
+}
+
+.description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(6, 21, 43, 0.72);
+}
+
+/* --------------------------------------------------- */
+/* Form Card */
+/* --------------------------------------------------- */
+.card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 21, 43, 0.08);
+  border-radius: 32px;
+  padding: 50px;
+  box-shadow: 0 20px 60px rgba(6, 21, 43, 0.08);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formRow {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  width: 100%;
+  text-align: left;
+  display: block;
+
+  font-size: 1rem;
+  font-weight: 600;
+  color: #06152B;
+
+  margin-bottom: 12px;
+}
+
+.inputField,
+.textareaField {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(6, 21, 43, 0.1);
+  border-radius: 18px;
+  padding: 18px 22px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #06152B;
+  transition: all 0.3s ease;
+}
+
+.textareaField {
+  min-height: 180px;
+  resize: none;
+}
+
+.inputField:focus,
+.textareaField:focus {
+  outline: none;
+  border-color: #C8A951;
+  /* Gold */
+  box-shadow: 0 0 0 4px rgba(200, 169, 81, 0.12);
+}
+
+.errorText {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.inputError {
+  border-color: rgba(231, 76, 60, 0.5) !important;
+  background: #fffafa !important;
+}
+
+/* --------------------------------------------------- */
+/* Submit Button */
+/* --------------------------------------------------- */
+.submitBtn {
+  align-self: center;
+  background: linear-gradient(135deg,
+      #06152B 0%,
+      #093C72 100%);
+  color: #ffffff;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(6, 21, 43, 0.2);
+}
+
+.submitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(200, 169, 81, 0.4);
+}
+
+/* --------------------------------------------------- */
+/* Responsive */
+/* --------------------------------------------------- */
+@media (max-width: 991px) {
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}
