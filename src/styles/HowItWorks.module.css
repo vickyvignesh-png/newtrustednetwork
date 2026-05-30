@@ -21,21 +21,13 @@
 
 .sectionLabel::before {
   content: "";
-
   width: 10px;
   height: 10px;
-
   border-radius: 50%;
-
   background: #C8A951;
-
-  box-shadow:
-    0 0 12px rgba(200, 169, 81, 0.4);
-
+  box-shadow: 0 0 12px rgba(200, 169, 81, 0.4);
   flex-shrink: 0;
 }
-
-/* LABEL CENTER ALIGN */
 
 .sectionLabelWrapper {
   width: 100%;
@@ -43,26 +35,19 @@
   justify-content: center;
 }
 
-/* LINE AFTER DOT */
 .sectionLabel .line {
   width: 48px;
   height: 1.5px;
-
-  background:
-    rgba(200, 169, 81, 0.7);
+  background: rgba(200, 169, 81, 0.7);
 }
 
 .sectionLabel span {
   color: #C8A951;
-
   font-size: 0.9rem;
   font-weight: 700;
-
   letter-spacing: 5px;
   text-transform: uppercase;
-
   font-family: 'Poppins', sans-serif;
-
   line-height: 1;
 }
 
@@ -101,24 +86,21 @@
   margin: 0 auto;
 }
 
-/* MAIN COMPOSITION - Tighter Overlap */
+/* MAIN COMPOSITION */
 .mainComposition {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 600px;
   position: relative;
-  gap: -50px;
-  /* Pulling elements together */
 }
 
-/* Phone - Significantly tighter overlap */
 .leftArea {
   width: 400px;
   flex-shrink: 0;
   z-index: 20;
   margin-right: -240px;
-  /* Deep overlap to close the gap */
+  pointer-events: none;
 }
 
 .mockupImage {
@@ -127,10 +109,8 @@
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6));
 }
 
-/* Arc - Increased Size */
 .centerArea {
   width: 600px;
-  /* Increased from 500 */
   height: 600px;
   flex-shrink: 0;
   z-index: 10;
@@ -138,7 +118,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  right: 11%
+  right: 11%;
 }
 
 .arcSvg {
@@ -204,13 +184,12 @@
   fill: #fff;
 }
 
-/* Card - Balanced Proximity */
+/* Card */
 .rightArea {
   width: 550px;
   flex-shrink: 0;
   z-index: 20;
   margin-left: -50px;
-  /* Re-tightening card proximity */
 }
 
 .contentCard {
@@ -266,10 +245,11 @@
   font-size: 1.5rem;
   font-weight: 800;
   color: #fff;
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: -0.5px;
-  white-space: nowrap;
-  /* Force single line */
+  /* Removed white-space: nowrap — was causing overflow */
+  white-space: normal;
+  word-break: break-word;
 }
 
 .cardDescription {
@@ -278,48 +258,180 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Large desktop — tighten */
 @media (max-width: 1350px) {
   .leftArea {
-    width: 300px;
-    margin-right: -80px;
+    width: 320px;
+    margin-right: -180px;
+  }
+  .centerArea {
+    width: 520px;
+    height: 520px;
+  }
+  .rightArea {
+    width: 460px;
+    margin-left: -30px;
+  }
+}
+
+/* TABLET — stack vertically */
+@media (max-width: 1100px) {
+  .howItWorks {
+    padding: 60px 0;
+  }
+
+  .mainComposition {
+    flex-direction: column;
+    min-height: auto;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .leftArea {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .centerArea {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    right: 0;
+    order: -1;  /* Phone first on tablet */
   }
 
   .rightArea {
-    width: 500px;
-    margin-left: -50px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contentCard {
+    padding: 36px 28px;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .sectionTitle {
+    font-size: 2.2rem;
   }
 }
 
-@media (max-width: 1100px) {
-  .mainComposition {
-    flex-direction: column;
-    gap: 60px;
+/* MOBILE */
+@media (max-width: 767px) {
+  .howItWorks {
+    padding: 48px 0;
   }
 
-  .leftArea,
-  .rightArea {
-    margin: 0;
-    width: 100%;
-    max-width: 500px;
+  .container {
+    padding: 0 16px;
   }
-/* Additional responsive adjustments */
-@media (max-width: 900px) {
-  .sectionTitle { font-size: 2.2rem; }
-  .sectionSubtitle { font-size: 1rem; }
-  .cardsRow { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-  .contentCard { padding: 30px; }
+
+  .mainComposition {
+    flex-direction: column;
+    min-height: auto;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .leftArea {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .centerArea {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    right: 0;
+    order: -1;  /* Phone prominent at top */
+  }
+
+  .rightArea {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .contentCard {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .cardTop {
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .cardIconCircle {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+
+  .cardDescription {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
 }
 
 @media (max-width: 480px) {
-  .sectionTitle { font-size: 1.8rem; }
-  .sectionSubtitle { font-size: 0.9rem; }
-  .cardsRow { grid-template-columns: 1fr; gap: 20px; }
-  .contentCard { padding: 20px; }
-}
+  .howItWorks {
+    padding: 40px 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .contentCard {
+    padding: 24px 16px;
+  }
+
+  .cardIconCircle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .cardDescription {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .centerArea {
+    max-width: 280px;
+  }
 }
