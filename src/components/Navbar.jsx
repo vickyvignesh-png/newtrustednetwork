@@ -1,10 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
-import mainLogo from '../assets/mainlogo.svg';
+import mainlogo from '../assets/mainlogo.svg';
+import bfscrolllogo from '../assets/bfscrolllogo.png';
 import styles from '../styles/Navbar.module.css';
 
+// Add effect to toggle a body class for pre-scroll styling
+const usePreScrollClass = (isTransparent) => {
+  useEffect(() => {
+    if (isTransparent) {
+      document.body.classList.add('preScroll');
+    } else {
+      document.body.classList.remove('preScroll');
+    }
+  }, [isTransparent]);
+};
+
 const Navbar = () => {
+  const [isTransparent, setIsTransparent] = useState(true);
+
+  // Scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTransparent(window.scrollY === 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Apply body class based on transparency
+  usePreScrollClass(isTransparent);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -17,10 +44,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={styles.navBar}>
+    <nav className={`${styles.navBar} ${isTransparent ? styles.transparent : ''}`}>
       {/* LEFT — Logo */}
       <Link to="/" className={styles.logoLink} onClick={() => window.scrollTo(0, 0)}>
-        <img src={mainLogo} alt="Trusted Network" className={styles.logoImg} />
+        <img src={isTransparent ? bfscrolllogo : mainlogo} alt="Trusted Network" className={styles.logoImg} />
       </Link>
 
       {/* CENTER — Nav Links */}

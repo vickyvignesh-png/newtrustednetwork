@@ -49,10 +49,10 @@
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
   text-align: center;
   position: relative;
   z-index: 1;
-  /* keep above blur circles */
 }
 
 /* ============================================
@@ -68,21 +68,13 @@
 
 .sectionLabel::before {
   content: "";
-
   width: 10px;
   height: 10px;
-
   border-radius: 50%;
-
   background: #C8A951;
-
-  box-shadow:
-    0 0 12px rgba(200, 169, 81, 0.4);
-
+  box-shadow: 0 0 12px rgba(200, 169, 81, 0.4);
   flex-shrink: 0;
 }
-
-/* LABEL CENTER ALIGN */
 
 .sectionLabelWrapper {
   width: 100%;
@@ -90,26 +82,19 @@
   justify-content: center;
 }
 
-/* LINE AFTER DOT */
 .sectionLabel .line {
   width: 48px;
   height: 1.5px;
-
-  background:
-    rgba(200, 169, 81, 0.7);
+  background: rgba(200, 169, 81, 0.7);
 }
 
 .sectionLabel span {
   color: #C8A951;
-
   font-size: 0.9rem;
   font-weight: 700;
-
   letter-spacing: 5px;
   text-transform: uppercase;
-
   font-family: 'Poppins', sans-serif;
-
   line-height: 1;
 }
 
@@ -119,16 +104,14 @@
   font-weight: 600;
   letter-spacing: 4px;
   color: #C8A951;
-  /* Gold */
   margin-bottom: 8px;
   text-transform: uppercase;
 }
 
 .title {
-  font-size: clamp(3rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   color: #06152B;
-  /* Navy */
   margin-bottom: 20px;
 }
 
@@ -160,14 +143,17 @@
   gap: 24px;
 }
 
+/* KEY FIX: .formRow is flex — wrap on mobile */
 .formRow {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   align-items: flex-start;
 }
 
 .inputGroup {
-  flex: 1;
+  flex: 1 1 200px;   /* grows, shrinks, min 200px — then wraps naturally */
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,11 +163,9 @@
   width: 100%;
   text-align: left;
   display: block;
-
   font-size: 1rem;
   font-weight: 600;
   color: #06152B;
-
   margin-bottom: 12px;
 }
 
@@ -197,6 +181,7 @@
   font-weight: 500;
   color: #06152B;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .textareaField {
@@ -208,7 +193,6 @@
 .textareaField:focus {
   outline: none;
   border-color: #C8A951;
-  /* Gold */
   box-shadow: 0 0 0 4px rgba(200, 169, 81, 0.12);
 }
 
@@ -248,10 +232,60 @@
 }
 
 /* --------------------------------------------------- */
-/* Responsive */
+/* Responsive                                          */
 /* --------------------------------------------------- */
 @media (max-width: 991px) {
+  .card {
+    padding: 36px 28px;
+  }
+
+  /* flex-wrap already handles stacking via flex: 1 1 200px */
+}
+
+@media (max-width: 767px) {
+  .contactSection {
+    padding: 60px 0;
+  }
+
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .card {
+    padding: 28px 16px;
+    border-radius: 20px;
+  }
+
+  /* Force single column on mobile */
   .formRow {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .inputGroup {
+    flex: 1 1 100%;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 20px 14px;
+  }
+
+  .inputField,
+  .textareaField {
+    padding: 14px 16px;
+    border-radius: 12px;
   }
 }

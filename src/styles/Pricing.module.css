@@ -159,16 +159,79 @@
   justify-content: center;
 }
 
-@media (max-width: 1024px) {
+/* ---- TABLET ---- */
+@media (max-width: 1100px) {
+  .pricing {
+    padding: 60px 0;
+  }
+
   .plansGrid {
     grid-template-columns: 1fr;
-    max-width: 500px;
+    max-width: 520px;
     margin: 0 auto;
-    gap: 50px;
+    gap: 32px;
   }
 
   .featured {
     transform: scale(1);
+  }
+
+  .toggleContainer {
+    margin-bottom: 40px;
+  }
+}
+
+/* ---- MOBILE ---- */
+/* ---- MOBILE ---- */
+@media (max-width: 767px) {
+  .sectionLabelWrapper {
+    justify-content: flex-start;
+  }
+  .sectionLabel {
+    justify-content: flex-start;
+  }
+  .plansGrid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 24px;
+  }
+  .planCard {
+    padding: 36px 24px;
+    border-radius: 24px;
+  }
+  .planName {
+    font-size: 1.5rem;
+  }
+  .amount {
+    font-size: 2.5rem;
+  }
+  .featureItem {
+    font-size: 0.93rem;
+  }
+  .toggleContainer {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing {
+    padding: 40px 0;
+  }
+
+  .planCard {
+    padding: 28px 18px;
+  }
+
+  .planName {
+    font-size: 1.35rem;
+  }
+
+  .cardHeader {
+    margin-bottom: 24px;
+  }
+
+  .featureList {
+    margin-bottom: 28px;
   }
 }
 

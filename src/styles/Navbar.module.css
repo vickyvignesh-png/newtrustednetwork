@@ -4,7 +4,7 @@
    ============================================ */
 
 .navBar {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -12,13 +12,44 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 20px 90px;
   background: #ffffff;
   border-bottom: 1px solid #06152B;
   box-shadow: 0 2px 16px rgba(6, 21, 43, 0.06);
-  z-index: 1000;
-  transition: box-shadow 0.3s ease, background 0.3s ease;
+  z-index: 9999;
+  transition: all 0.3s ease;
 }
+
+.transparent {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  /* Allow height to fit the 78px logo beautifully */
+  padding: 20px 90px 5px !important;
+  /* Reduced bottom padding for breathing room */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 1000 !important;
+}
+
+/* Transparent state overrides */
+.transparent .navLinkAnchor {
+  color: #ffffff !important;
+}
+
+.transparent .logoImg {
+  height: 78px !important;
+  width: auto !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
 
 /* ---- Logo ---- */
 .logoLink {
@@ -31,7 +62,7 @@
   height: 110px;
   width: auto;
   object-fit: contain;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, height 0.3s ease;
 }
 
 .logoLink:hover .logoImg {
@@ -143,7 +174,7 @@
   color: #06152B;
   font-size: 1.75rem;
   cursor: pointer;
-  padding: 4px;
+  padding: 0;
   line-height: 1;
   transition: color 0.3s ease;
 }
@@ -205,7 +236,8 @@
 }
 
 .mobileJoinWrapper {
-  margin-top: 12px;
+  margin: 0 auto 120px;
+  /* unchanged */
   padding: 12px 24px 0;
   border-top: 1px solid rgba(6, 21, 43, 0.08);
 }
@@ -238,6 +270,14 @@
     padding: 0 36px;
   }
 
+  .transparent {
+    padding: 15px 36px 5px !important;
+  }
+
+  .transparent .logoImg {
+    height: 70px !important;
+  }
+
   .navLinksList {
     gap: 26px;
   }
@@ -262,6 +302,29 @@
     height: 72px;
     padding: 0 24px;
   }
+
+  .transparent {
+    padding: 12px 24px 5px !important;
+  }
+
+  .transparent .logoImg {
+    height: 52px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .transparent {
+    position: fixed !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #06152B !important;
+    box-shadow: 0 2px 16px rgba(6, 21, 43, 0.06) !important;
+    padding: 12px 24px 5px !important;
+  }
+
+  .transparent .logoImg {
+    filter: none !important;
+    height: 110px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -270,25 +333,19 @@
     padding: 0 18px;
   }
 
+  .transparent {
+    padding: 8px 18px 5px !important;
+  }
+
+  .transparent .logoImg {
+    height: 40px !important;
+  }
+
   .logoImg {
-    height: 42px;
+    height: 40px;
   }
 
   .joinBtn {
     display: none;
   }
-}
-
-/* Responsive Navbar */
-@media (max-width: 1100px) {
-  .navBar { padding: 0 30px; }
-  .logoImg { height: 80px; }
-}
-@media (max-width: 900px) {
-  .navBar { padding: 0 24px; }
-  .logoImg { height: 70px; }
-}
-@media (max-width: 480px) {
-  .navBar { padding: 0 18px; }
-  .logoImg { height: 42px; }
 }
