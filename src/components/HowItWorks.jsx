@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiUserPlus, FiShield, FiEdit3, FiSearch, FiMessageCircle, FiTrendingUp } from 'react-icons/fi';
 import styles from '../styles/HowItWorks.module.css';
-import howItWorksSvg from '../assets/howtowork.svg';
+import registeryouraccount from '../assets/registeryouraccount.svg';
+import verifyyourbusiness from '../assets/verifyyourbusiness.svg';
+import completeyourprofile from '../assets/completeyourprofile.svg';
+import connectwithprofessionals from '../assets/connectwithprofessionals.svg';
+import sharebusinessactivities from '../assets/sharebusinessactivities.svg';
+import buildbusinessrelationships from '../assets/buildbusinessrelationships.svg';
 
 const steps = [
   {
@@ -11,7 +16,8 @@ const steps = [
     tag: "STEP 1",
     title: "Register Your Account",
     description: "Download the TN mobile application and register using your mobile number and email address with OTP verification.",
-    icon: <FiUserPlus size={32} />
+    icon: <FiUserPlus size={32} />,
+    image: registeryouraccount
   },
   {
     id: 2,
@@ -19,7 +25,8 @@ const steps = [
     tag: "STEP 2",
     title: "Verify Your Business",
     description: "Complete GST verification to activate your business profile inside the platform.",
-    icon: <FiShield size={32} />
+    icon: <FiShield size={32} />,
+    image: verifyyourbusiness
   },
   {
     id: 3,
@@ -27,7 +34,8 @@ const steps = [
     tag: "STEP 3",
     title: "Complete Your Profile",
     description: "Add your company details, services, networking interests, referrals required, and business information.",
-    icon: <FiEdit3 size={32} />
+    icon: <FiEdit3 size={32} />,
+    image: completeyourprofile
   },
   {
     id: 4,
@@ -35,7 +43,8 @@ const steps = [
     tag: "STEP 4",
     title: "Connect with Professionals",
     description: "Follow and connect with verified business owners relevant to your industry and interests.",
-    icon: <FiSearch size={32} />
+    icon: <FiSearch size={32} />,
+    image: connectwithprofessionals
   },
   {
     id: 5,
@@ -43,7 +52,8 @@ const steps = [
     tag: "STEP 5",
     title: "Share Business Activities",
     description: "Post your business requirements, recommendations, wins, opportunities, and professional updates.",
-    icon: <FiMessageCircle size={32} />
+    icon: <FiMessageCircle size={32} />,
+    image: sharebusinessactivities
   },
   {
     id: 6,
@@ -51,7 +61,8 @@ const steps = [
     tag: "STEP 6",
     title: "Build Business Relationships",
     description: "Conduct business discussions, exchange recommendations, and create trusted business opportunities.",
-    icon: <FiTrendingUp size={32} />
+    icon: <FiTrendingUp size={32} />,
+    image: buildbusinessrelationships
   }
 ];
 
@@ -103,14 +114,18 @@ const HowItWorks = () => {
 
           {/* LEFT: Phone Area - Touching Arc */}
           <div className={styles.leftArea}>
-            <motion.img
-              src={howItWorksSvg}
-              alt="Trusted Network Illustration"
-              className={styles.mockupImage}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            />
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeStep}
+                src={currentStepData.image}
+                alt={currentStepData.title}
+                className={styles.mockupImage}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+              />
+            </AnimatePresence>
           </div>
 
           {/* CENTER: Larger Arc Navigation */}

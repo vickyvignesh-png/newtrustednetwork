@@ -16,6 +16,19 @@
   margin-bottom: 0px;
 }
 
+.footerLogo {
+  width: 200px;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+.footerLogo:hover {
+  opacity: 1;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -204,7 +217,8 @@
   padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
-  justify-content: center; /* Centered content */
+  justify-content: center;
+  /* Centered content */
   align-items: center;
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;

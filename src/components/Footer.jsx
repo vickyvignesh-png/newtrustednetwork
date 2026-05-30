@@ -4,6 +4,7 @@ import { FiShield, FiLinkedin, FiTwitter, FiInstagram, FiFacebook, FiArrowRight,
 import { FaApple, FaGooglePlay } from 'react-icons/fa';
 import styles from '../styles/Footer.module.css';
 import qrCodeImg from '../assets/qr_code.png';
+import mainlogo from '../assets/mainlogo.svg';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,10 +15,7 @@ const Footer = () => {
         <div className={styles.footerGrid}>
           <div className={styles.col}>
             <Link to="/" className={styles.logo}>
-              <div className={styles.logoIcon}>
-                <FiShield />
-              </div>
-              <span className={styles.logoText}>Trusted<span> Network</span></span>
+              <img src={mainlogo} alt="Logo" className={styles.footerLogo} />
             </Link>
             <p className={styles.tagline}>
               India's GST-verified business social networking platform.
