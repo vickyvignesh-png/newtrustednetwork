@@ -193,7 +193,7 @@ const HowItWorks = () => {
             </svg>
           </div>
 
-          {/* RIGHT: Refined Content Card */}
+          {/* RIGHT: Redesigned infographic cards */}
           <div className={styles.rightArea}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -202,21 +202,30 @@ const HowItWorks = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5 }}
-                className={styles.contentCard}
+                className={styles.infographicBody}
               >
-                <div className={styles.cardTop}>
-                  <div className={styles.cardIconCircle}>
-                    {currentStepData.icon}
-                  </div>
-                  <div className={styles.cardHeaderContent}>
-                    <div className={styles.cardStepNumber}>{currentStepData.tag}</div>
-                    <h3 className={styles.cardTitle}>{currentStepData.title}</h3>
-                  </div>
-                </div>
+                {/* STEP badge */}
+                <div className={styles.stepBadge}>STEP {currentStepData.number}</div>
 
-                <p className={styles.cardDescription}>
-                  {currentStepData.description}
-                </p>
+                {/* Two‑column layout */}
+                <div className={styles.cardBody}>
+        {/* Row 1: Number and Title */}
+        <div className={styles.leftColumn}>
+          <div className={styles.stepNumberLarge}>{currentStepData.number}</div>
+        </div>
+        <div className={styles.rightColumn}>
+          <h3 className={styles.cardTitle}>{currentStepData.title}</h3>
+        </div>
+        {/* Row 2: Icon and Description */}
+        <div className={styles.leftColumn}>
+          <div className={styles.iconCard}>{currentStepData.icon}</div>
+        </div>
+        <div className={styles.rightColumn}>
+          <p className={styles.cardDescription}>{currentStepData.description}</p>
+        </div>
+      </div>
+
+
               </motion.div>
             </AnimatePresence>
           </div>

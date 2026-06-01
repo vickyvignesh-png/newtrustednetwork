@@ -34,7 +34,7 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
 }
 
 .logoIcon {
@@ -76,6 +76,7 @@
 .socials {
   display: flex;
   gap: 15px;
+  padding-bottom: 25px;
 }
 
 .socials a {
@@ -184,7 +185,7 @@
 }
 
 .contactInfo {
-  margin-top: auto;
+  /* margin-top: auto; */
   /* Pushes contact info to bottom to match other columns */
 }
 

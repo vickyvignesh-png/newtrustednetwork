@@ -5,6 +5,7 @@ import styles from '../styles/FloatingActions.module.css';
 
 const FloatingActions = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,9 +45,31 @@ const FloatingActions = () => {
       </AnimatePresence>
 
       {/* Chatbot & Telegram Section */}
-      <div className={styles.chatWrapper}>
+      <div
+        className={styles.chatWrapper}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* On Hover text - slides in smoothly to the left */}
-        <span className={styles.hoverText}>WE ARE HERE!</span>
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              className={styles.tooltipBubble}
+              initial={{ opacity: 0, x: 20, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 20, scale: 0.9 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+            >
+              <span className={styles.tooltipPulse} />
+              <div>
+                <strong className={styles.tooltipTitle}>
+                  Get Support
+                </strong>
+              </div>
+              <span className={styles.tooltipArrow} />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Telegram/Send Icon (Small floating support indicator) */}
         {/* <button 

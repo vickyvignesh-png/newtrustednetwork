@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { useLocation } from 'react-router-dom';
 import mainlogo from '../assets/mainlogo.svg';
 import bfscrolllogo from '../assets/bfscrolllogo.png';
 import styles from '../styles/Navbar.module.css';

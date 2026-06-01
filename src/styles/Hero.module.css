@@ -14,7 +14,12 @@
   min-height: 600px;
   border-radius: 0 0 40px 40px;
   position: relative;
-  overflow: hidden;
+
+  .heroSection {
+    overflow: visible;
+    /* allow image card overflow beyond hero */
+  }
+
   display: flex;
   align-items: center;
   box-shadow: 0 20px 60px rgba(6, 21, 43, 0.3);
@@ -227,25 +232,69 @@
   top: 0;
   bottom: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   z-index: 20;
 }
 
-.imageWrapper {
-  width: 350px;
-  height: 580px;
-  position: relative;
-  flex-shrink: 0;
+/* Increase width for larger screens */
+@media (min-width: 1400px) {
+  .imageCard {
+    width: 400px;
+  }
 }
 
-.heroImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.imageCard {
+  position: relative;
+  width: 350px;
+  height: 645px;
+  /* taller than hero content */
   border-radius: 32px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+  background: linear-gradient(180deg, #062B63 0%, #041D45 100%);
+  border: 1px solid rgba(212, 175, 55, 0.20);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  overflow: visible;
+  /* allow image overflow */
 }
+
+.imageCard img {
+  position: absolute;
+  bottom: 0px;
+  /* overflow bottom for anchoring */
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #06152B;
+  color: #D4AF37;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.glow {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: calc(100% + 60px);
+  height: calc(100% + 60px);
+  border-radius: 40px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 
 /* ============================================
    PRE-SCROLL HERO CONTENT ADJUSTMENTS
@@ -281,7 +330,7 @@
    ============================================ */
 
 @media (max-width: 1400px) {
-  .imageWrapper {
+  .imageCard {
     width: 380px;
     height: 580px;
   }
@@ -301,7 +350,7 @@
     font-size: 2.8rem;
   }
 
-  .imageWrapper {
+  .imageCard {
     width: 320px;
     height: 520px;
   }
@@ -342,7 +391,7 @@
     width: 100%;
   }
 
-  .imageWrapper {
+  .imageCard {
     width: 100%;
     max-width: 380px;
     height: auto;
