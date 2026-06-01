@@ -146,7 +146,7 @@
   font-size: 0.9rem;
   font-weight: 700;
 
-  letter-spacing: 5px;
+  letter-spacing: normal;
   text-transform: uppercase;
 
   font-family: 'Poppins', sans-serif;
@@ -290,59 +290,66 @@
   }
 }
 
-/* ---- MOBILE (≤767px) ---- */
-@media (max-width: 767px) {
+/* ---- MOBILE (≤768px) ---- */
+@media (max-width: 768px) {
   .about {
-    padding: 48px 0;
+    padding: 48px 16px;
+    overflow-x: hidden;
   }
 
   .statsLayout {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 32px;
   }
 
-  .statsLeft,
   .statsRight {
-    display: contents;
+    text-align: left;
   }
 
   .sectionLabel {
-    order: 1;
-    margin-bottom: 12px;
-    display: inline-flex;
     justify-content: flex-start;
     width: 100%;
-  }
-
-  .statsRight > div:not(.sectionLabel):not(.editorialContent) {
-    order: 2;
-    margin: 0 0 24px !important;
-    text-align: left !important;
-  }
-
-  .imageWrapper {
-    order: 1;
-    max-width: 320px;
-    margin: 0 auto 32px !important;
-    padding: 12px;
-  }
-
-  .aboutImage {
-    max-width: 100%;
-    border-radius: 16px;
+    margin-bottom: 12px;
   }
 
   .editorialContent {
-    order: 4;
     gap: 20px;
-    margin-top: 0 !important;
+    margin-top: 24px;
   }
 
   .editorialText {
     font-size: 1rem;
-    padding-left: 18px;
+    padding-left: 16px;
     line-height: 1.7;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .statsLeft {
+    width: 100%;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .aboutImage {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .cornerTopLeft,
+  .cornerBottomRight {
+    width: 60px;
+    height: 60px;
   }
 
   .shareSection {
@@ -353,13 +360,14 @@
   .shareTitle {
     font-size: 1.7rem;
     margin-bottom: 16px;
-    text-align: left;
+    text-align: center;
   }
 
   .shareDescription {
     font-size: 0.95rem;
     margin-bottom: 36px;
     line-height: 1.7;
+    text-align: center;
   }
 
   .shareGrid {
@@ -371,38 +379,63 @@
     padding: 28px 20px;
   }
 
-  .cornerTopLeft,
-  .cornerBottomRight {
-    width: 60px;
-    height: 60px;
+  .watermark {
+    font-size: 15rem;
+    top: -30px;
+    right: -30px;
   }
-
 }
 
+/* ---- SMALL MOBILE (≤480px) ---- */
 @media (max-width: 480px) {
   .about {
-    padding: 40px 0;
+    padding: 32px 12px;
   }
 
   .statsLayout {
-    gap: 28px;
+    gap: 24px;
+  }
+
+  .sectionLabel span {
+    font-size: 0.78rem;
+  }
+
+  .editorialContent {
+    margin-top: 18px;
+    gap: 16px;
   }
 
   .editorialText {
-    font-size: 0.95rem;
-    padding-left: 14px;
+    font-size: 0.92rem;
+    padding-left: 12px;
+    line-height: 1.65;
+  }
+
+  .imageWrapper {
+    padding: 8px;
+  }
+
+  .cornerTopLeft,
+  .cornerBottomRight {
+    width: 45px;
+    height: 45px;
+    border-width: 4px;
   }
 
   .shareTitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .shareDescription {
-    font-size: 0.9rem;
-    margin-bottom: 28px;
+    font-size: 0.88rem;
+    margin-bottom: 24px;
   }
 
   .shareCard {
-    padding: 24px 16px;
+    padding: 22px 14px;
   }
-}
+
+  .watermark {
+    font-size: 10rem;
+  }
+}

@@ -194,8 +194,93 @@
 }
 
 @media (max-width: 480px) {
+
   /* On extremely small screens, suppress the hover text to avoid overlap */
   .hoverText {
+    display: none;
+  }
+}
+
+/* ── Glass Bubble Tooltip ── */
+.tooltipBubble {
+  position: absolute;
+  right: 85px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0a1628;
+  border: 1.5px solid rgba(200, 160, 60, 0.5);
+  border-radius: 14px 14px 2px 14px;
+  padding: 10px 16px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(200, 160, 60, 0.1),
+    0 0 20px rgba(200, 160, 60, 0.08);
+}
+
+/* Pulse dot */
+.tooltipPulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C8A03C;
+  flex-shrink: 0;
+  animation: tooltipPulseAnim 1.5s ease-in-out infinite;
+}
+
+@keyframes tooltipPulseAnim {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.4);
+  }
+}
+
+/* Title text */
+.tooltipTitle {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #C8A03C;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* Subtitle text */
+.tooltipSub {
+  display: block;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Inter', 'Outfit', sans-serif;
+  margin-top: 2px;
+}
+
+/* Arrow tail pointing right toward button */
+.tooltipArrow {
+  position: absolute;
+  right: -7px;
+  bottom: 12px;
+  width: 13px;
+  height: 13px;
+  background: #0a1628;
+  border-right: 1.5px solid rgba(200, 160, 60, 0.5);
+  border-top: 1.5px solid rgba(200, 160, 60, 0.5);
+  transform: rotate(45deg);
+}
+
+/* Hide tooltip on very small screens */
+@media (max-width: 480px) {
+  .tooltipBubble {
     display: none;
   }
 }

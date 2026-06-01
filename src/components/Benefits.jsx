@@ -58,7 +58,7 @@ const Benefits = () => (
       <div className={`${styles.cardsRow} ${styles.firstRow}`}>
         {cards.slice(0, 4).map((card, i) => (
           <div className={styles.card} key={i}>
-            {card.icon}
+            <div className={styles.iconWrapper}>{card.icon}</div>
             <h3 className={styles.cardTitle}>{card.title}</h3>
             <p className={styles.cardDesc}>{card.description}</p>
           </div>
@@ -68,7 +68,7 @@ const Benefits = () => (
       <div className={`${styles.cardsRow} ${styles.secondRow}`}>
         {cards.slice(4).map((card, i) => (
           <div className={styles.card} key={i}>
-            {card.icon}
+            <div className={styles.iconWrapper}>{card.icon}</div>
             <h3 className={styles.cardTitle}>{card.title}</h3>
             <p className={styles.cardDesc}>{card.description}</p>
           </div>
