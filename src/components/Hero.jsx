@@ -2,10 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiUsers, FiDownload, FiArrowRight, FiStar } from 'react-icons/fi';
 import styles from '../styles/Hero.module.css';
+import Statistics from './Statistics';
 
 // Import images
 import heroBg from '../assets/herosectionbgimg.png';
-import mainBanner from '../assets/anothermainimg.jpg';
+import womanImage from '../assets/ogherosection womenimage (1).svg';
 
 const Hero = () => {
   return (
@@ -75,19 +76,21 @@ const Hero = () => {
                   <span className={styles.trustSub}>100% GST-verified members • Zero fake profiles</span>
                 </div>
               </div>
+
+
             </motion.div>
           </div>
 
           {/* RIGHT Side — Hero Image */}
           <div className={styles.heroRight}>
             <motion.div
-              className={styles.imageWrapper}
+              className={styles.imageCard}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <img
-                src={mainBanner}
+                src={womanImage}
                 alt="Trusted Network Platform"
                 className={styles.heroImage}
               />
@@ -96,6 +99,8 @@ const Hero = () => {
 
         </div>
       </section>
+      {/* Statistics Section */}
+      <Statistics />
     </div>
   );
 };
