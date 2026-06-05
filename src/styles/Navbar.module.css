@@ -43,13 +43,97 @@
 }
 
 .transparent .logoImg {
-  height: 78px !important;
+  height: 110px !important;
   width: auto !important;
-  border-radius: 6px !important;
-  background: transparent !important;
-  padding: 0 !important;
+  filter: brightness(1.15) contrast(1.15) drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
 }
 
+/* .transparent .logoLink {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+} */
+
+/* .transparent .logoLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.transparent .logoLink::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  left: -10px;
+  right: -10px;
+
+  background: radial-gradient(ellipse at center,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0) 100%);
+
+  filter: blur(12px);
+  z-index: -1;
+  pointer-events: none;
+} */
+
+.transparent .logoLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+/* .transparent .logoLink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 220px;
+  height: 90px;
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(ellipse,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(255, 255, 255, 0.45) 45%,
+      rgba(255, 255, 255, 0) 100%);
+
+  z-index: -1;
+} */
+
+.transparent {
+  position: absolute !important;
+  overflow: hidden;
+}
+
+.transparent::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: -180px;
+
+  width: 500px;
+  height: 350px;
+
+  background: radial-gradient(ellipse at center,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.18) 35%,
+      rgba(255, 255, 255, 0.08) 55%,
+      rgba(255, 255, 255, 0) 100%);
+
+  pointer-events: none;
+  z-index: -1;
+}
 
 /* ---- Logo ---- */
 .logoLink {
@@ -123,47 +207,73 @@
   flex-shrink: 0;
 }
 
-.joinBtn {
+.storeButtons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.storeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 18px;
   background: #ffffff;
-  color: #06152B;
   border: 2px solid #C8A951;
-  padding: 11px 32px;
-  border-radius: 50px;
+  border-radius: 30px;
+  color: #06152B;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.storeBtn:hover {
+  background: #C8A951;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 169, 81, 0.25);
+}
+
+.storeIcon {
+  font-size: 1.1rem;
+}
+
+.mobileStoreButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 24px 0;
+  border-top: 1px solid rgba(6, 21, 43, 0.08);
+}
+
+.mobileStoreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 46px;
+  width: 100%;
+  background: #ffffff;
+  border: 2px solid #C8A951;
+  border-radius: 30px;
+  color: #06152B;
+  text-decoration: none;
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: color 0.35s ease, background 0.35s ease, transform 0.25s ease, box-shadow 0.35s ease;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-.joinBtn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+.mobileStoreBtn:hover {
   background: #C8A951;
-  border-radius: inherit;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 0;
-}
-
-.joinBtn:hover {
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(200, 169, 81, 0.3);
-}
-
-.joinBtn:hover::before {
-  transform: scaleX(1);
-}
-
-.joinBtnText {
-  position: relative;
-  z-index: 1;
 }
 
 /* ---- Hamburger (Mobile) ---- */
@@ -235,32 +345,6 @@
   color: #C8A951;
 }
 
-.mobileJoinWrapper {
-  margin: 0 auto 120px;
-  /* unchanged */
-  padding: 12px 24px 0;
-  border-top: 1px solid rgba(6, 21, 43, 0.08);
-}
-
-.mobileJoinBtn {
-  width: 100%;
-  background: #ffffff;
-  color: #06152B;
-  border: 2px solid #C8A951;
-  padding: 14px 0;
-  border-radius: 50px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.mobileJoinBtn:hover {
-  background: #C8A951;
-  color: #ffffff;
-}
-
 /* ============================================
    Responsive
    ============================================ */
@@ -312,6 +396,14 @@
   }
 }
 
+/* Tablet (768px-900px) button styling */
+@media (max-width: 900px) and (min-width: 768px) {
+  .storeBtn {
+    padding: 0 12px;
+    font-size: 0.82rem;
+  }
+}
+
 @media (max-width: 767px) {
   .transparent {
     position: fixed !important;
@@ -324,6 +416,11 @@
   .transparent .logoImg {
     filter: none !important;
     height: 110px !important;
+  }
+
+  /* Hide desktop store buttons on mobile screen sizes */
+  .storeButtons {
+    display: none;
   }
 }
 
@@ -343,9 +440,5 @@
 
   .logoImg {
     height: 40px;
-  }
-
-  .joinBtn {
-    display: none;
   }
 }

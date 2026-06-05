@@ -7,6 +7,7 @@ import HowItWorks from '../components/HowItWorks';
 import Pricing from '../components/Pricing';
 import Download from '../components/Download';
 import Contact from '../components/Contact';
+import BusinessImpact from '../components/BusinessImpact';
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Benefits />
       <HowItWorks />
       <Pricing />
+      <BusinessImpact />
       <Download />
       <Contact />
     </main>

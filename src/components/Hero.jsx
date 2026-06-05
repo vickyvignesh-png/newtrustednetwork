@@ -40,8 +40,8 @@ const Hero = () => {
             >
               {/* Title */}
               <h1 className={styles.heroTitle}>
-                India&apos;s Trusted Business Social
-                <span className={styles.heroHighlight}> Networking Platform</span>
+                India&apos;s Trusted Business<br></br>
+                <span className={styles.heroHighlight}> Social Networking Platform</span>
               </h1>
 
               {/* Description */}
@@ -55,9 +55,9 @@ const Hero = () => {
                 <button className={styles.ctaButton}>
                   <FiUsers /> Join TN
                 </button>
-                <button className={styles.ctaButton}>
+                {/* <button className={styles.ctaButton}>
                   <FiDownload /> Download App
-                </button>
+                </button> */}
                 <button className={styles.ctaButton}>
                   Start Free Trial <FiArrowRight />
                 </button>
