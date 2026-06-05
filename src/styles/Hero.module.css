@@ -309,11 +309,11 @@
 }
 
 :global(.preScroll) .sectionLabel {
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
 }
 
 :global(.preScroll) .heroTitle {
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
 }
 
 :global(.preScroll) .heroDescription {

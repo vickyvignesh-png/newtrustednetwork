@@ -65,7 +65,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <h4 className={styles.colTitle} style={{ marginBottom: '14px' }}>Contact Info</h4>
+            <h4 className={styles.colTitle} style={{ marginBottom: '14px', marginTop: '10px' }}>Contact Info</h4>
             <div className={styles.contactInfo}>
               <p>
                 <FiMail className={styles.contactIcon} />

@@ -101,8 +101,8 @@ const Contact = () => {
       {/* ====================================================
           NEW CTA SECTION (ACTIVE UI)
           ==================================================== */}
-      <section 
-        id="contact" 
+      <section
+        id="contact"
         className={styles.ctaSection}
         style={{ backgroundImage: `url(${footerBg})` }}
       >
@@ -123,42 +123,109 @@ const Contact = () => {
         </div>
 
         <div className={styles.wrapper}>
-          {/* Label style matching rest of website */}
-          <div className={styles.sectionLabelWrapper}>
-            <div className={styles.sectionLabel}>
-              <div className={styles.line}></div>
-              <span>START NETWORKING TODAY</span>
+          <div className={styles.ctaGrid}>
+            {/* LEFT SIDE: Existing CTA content */}
+            <div className={styles.ctaLeft}>
+              <div className={styles.sectionLabelWrapper}>
+                <div className={styles.sectionLabel}>
+                  <div className={styles.line}></div>
+                  <span>START NETWORKING TODAY</span>
+                </div>
+              </div>
+
+              {/* Centered Heading (font-size reduced to 48px-56px max) */}
+              <h2 className={styles.ctaTitle}>
+                Build Trusted Business Relationships
+              </h2>
+
+              {/* Compact Description with Tighter Spacing */}
+              <p className={styles.ctaDesc}>
+                Connect with verified professionals, generate referrals, and grow through trusted business networking.
+              </p>
+
+              {/* Buttons with Join TN */}
+              {/* <div className={styles.btnGroup}>
+                <button
+                  className={styles.joinBtn}
+                  onClick={() => setIsJoinModalOpen(true)}
+                >
+                  <FiUsers className={styles.btnIcon} /> Join TN
+                </button>
+              </div> */}
+            </div>
+
+            {/* RIGHT SIDE: Premium Contact Form Card */}
+            <div className={styles.ctaRight}>
+              <div className={styles.premiumFormCard}>
+                <div className={styles.formHeader}>
+                  <h3 className={styles.formCardTitle}>Get In Touch</h3>
+                  <p className={styles.formCardSubtitle}>
+                    Fill in your details and our team will contact you shortly.
+                  </p>
+                </div>
+
+                <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                  <div className={styles.formGridRow}>
+                    <div className={styles.inputGroup}>
+                      <label className={styles.lightLabel}>Name</label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={handleNameChange}
+                        placeholder="Enter your name"
+                        className={`${styles.inputField} ${styles.lightInput} ${errors.name ? styles.inputError : ''}`}
+                      />
+                      {errors.name && <span className={styles.errorText}>{errors.name}</span>}
+                    </div>
+
+                    <div className={styles.inputGroup}>
+                      <label className={styles.lightLabel}>Email</label>
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={handleEmailChange}
+                        placeholder="Enter your email"
+                        className={`${styles.inputField} ${styles.lightInput} ${errors.email ? styles.inputError : ''}`}
+                      />
+                      {errors.email && <span className={styles.errorText}>{errors.email}</span>}
+                    </div>
+                  </div>
+
+                  <div className={styles.formFullRow}>
+                    <div className={styles.inputGroup}>
+                      <label className={styles.lightLabel}>Phone Number</label>
+                      <input
+                        type="tel"
+                        value={phone}
+                        onChange={handlePhoneChange}
+                        placeholder="Enter phone number"
+                        className={`${styles.inputField} ${styles.lightInput} ${errors.phone ? styles.inputError : ''}`}
+                      />
+                      {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
+                    </div>
+                  </div>
+
+                  <div className={styles.formFullRow}>
+                    <div className={styles.inputGroup}>
+                      <label className={styles.lightLabel}>Message</label>
+                      <textarea
+                        value={message}
+                        onChange={handleMessageChange}
+                        placeholder="Write your message here..."
+                        className={`${styles.textareaField} ${styles.lightInput} ${errors.message ? styles.inputError : ''}`}
+                      />
+                      {errors.message && <span className={styles.errorText}>{errors.message}</span>}
+                    </div>
+                  </div>
+
+                  <button type="submit" className={styles.fullWidthSubmitBtn}>
+                    <span>Send Message</span>
+                    <FiSend className={styles.submitBtnIcon} />
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-
-          {/* Centered Heading (font-size reduced to 48px-56px max) */}
-          <h2 className={styles.ctaTitle}>
-            Build Trusted<br />Business Relationships
-          </h2>
-
-          {/* Compact Description with Tighter Spacing */}
-          <p className={styles.ctaDesc}>
-            Connect with verified professionals, generate referrals, and grow through trusted business networking.
-          </p>
-
-          {/* Buttons Side-by-Side on Desktop, Stacked on Mobile with Icons */}
-          <div className={styles.btnGroup}>
-            <button 
-              className={styles.joinBtn}
-              onClick={() => setIsJoinModalOpen(true)}
-            >
-              <FiUsers className={styles.btnIcon} /> Join TN
-            </button>
-            <button 
-              className={styles.contactBtn}
-              onClick={() => setIsContactModalOpen(true)}
-            >
-              <FiMessageSquare className={styles.btnIcon} /> Contact Us
-            </button>
-          </div>
-
-          {/* Premium Trust Review Strip (Single compact horizontal row) */}
-
         </div>
       </section>
 
@@ -181,7 +248,7 @@ const Contact = () => {
             <p className={styles.modalDesc}>
               Get the Trusted Network mobile application and start your verified networking journey.
             </p>
-            
+
             <div className={styles.storeButtons}>
               <a href="#" className={styles.storeCard}>
                 <div className={styles.storeIcon}><FaApple /></div>
@@ -211,16 +278,16 @@ const Contact = () => {
             <button className={styles.closeBtn} onClick={() => setIsContactModalOpen(false)}>
               <FiX size={20} />
             </button>
-            
+
             <div className={styles.sectionLabelWrapper}>
               <div className={styles.sectionLabel}>
                 <div className={styles.line}></div>
                 <span>GET IN TOUCH</span>
               </div>
             </div>
-            
+
             <h3 className={styles.modalTitle}>Contact Our Team</h3>
-            
+
             <form className={styles.form} onSubmit={handleSubmit} noValidate>
               <div className={styles.formRow}>
                 <div className={styles.inputGroup}>

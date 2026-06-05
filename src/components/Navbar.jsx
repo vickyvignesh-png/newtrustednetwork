@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useLocation } from 'react-router-dom';
+import { FaApple, FaGooglePlay } from 'react-icons/fa';
 import mainlogo from '../assets/mainlogo.svg';
-import bfscrolllogo from '../assets/bfscrolllogo.png';
 import styles from '../styles/Navbar.module.css';
 
 // Add effect to toggle a body class for pre-scroll styling
@@ -40,7 +40,7 @@ const Navbar = () => {
     // { name: 'Blogs', href: '/blogs' },
     { name: 'About Us', href: '#about' },
     { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Membership Plans', href: '#membership' },
+    { name: 'Membership Plans', href: '#pricing' },
     { name: 'Contact Us', href: '#contact' },
   ];
 
@@ -48,7 +48,7 @@ const Navbar = () => {
     <nav className={`${styles.navBar} ${isTransparent ? styles.transparent : ''}`}>
       {/* LEFT — Logo */}
       <Link to="/" className={styles.logoLink} onClick={() => window.scrollTo(0, 0)}>
-        <img src={isTransparent ? bfscrolllogo : mainlogo} alt="Trusted Network" className={styles.logoImg} />
+        <img src={mainlogo} alt="Trusted Network" className={styles.logoImg} />
       </Link>
 
       {/* CENTER — Nav Links */}
@@ -62,11 +62,18 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* RIGHT — Join TN + Hamburger */}
+      {/* RIGHT — Store Buttons + Hamburger */}
       <div className={styles.navRight}>
-        <button className={styles.joinBtn}>
-          <span className={styles.joinBtnText}>Join TN</span>
-        </button>
+        <div className={styles.storeButtons}>
+          <a href="#" className={styles.storeBtn}>
+            <FaApple className={styles.storeIcon} />
+            <span>App Store</span>
+          </a>
+          <a href="#" className={styles.storeBtn}>
+            <FaGooglePlay className={styles.storeIcon} />
+            <span>Google Play</span>
+          </a>
+        </div>
 
         <button
           className={styles.hamburgerBtn}
@@ -89,8 +96,15 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className={styles.mobileJoinWrapper}>
-            <button className={styles.mobileJoinBtn}>Join TN</button>
+          <div className={styles.mobileStoreButtons}>
+            <a href="#" className={styles.mobileStoreBtn}>
+              <FaApple className={styles.storeIcon} />
+              <span>App Store</span>
+            </a>
+            <a href="#" className={styles.mobileStoreBtn}>
+              <FaGooglePlay className={styles.storeIcon} />
+              <span>Google Play</span>
+            </a>
           </div>
         </div>
       )}
