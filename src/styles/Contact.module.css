@@ -21,8 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.82);
-  /* Bright, clean white overlay to maximize image visibility */
+  background: rgba(255 255 255 / 50%);
   z-index: 1;
 }
 
@@ -198,10 +197,12 @@
     flex: 0 0 45%;
     max-width: 45%;
   }
+
   .ctaRight {
     flex: 0 0 55%;
     max-width: 55%;
   }
+
   .premiumFormCard {
     padding: 24px;
   }
