@@ -83,7 +83,7 @@
 .navLinksList {
   display: flex;
   align-items: center;
-  gap: 38px;
+  gap: 28px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -95,9 +95,10 @@
 
 .navLinkAnchor {
   color: #06152B;
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
   transition: all .3s ease;
 }
 
@@ -160,6 +161,8 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-sizing: border-box;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .storeBtn:hover {
@@ -278,29 +281,53 @@
    Responsive
    ============================================ */
 
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
   .navBar {
-    padding: 0 36px;
+    padding: 20px 48px;
   }
 
   .transparent {
-    padding: 15px 36px 5px !important;
-  }
-
-  .transparent .logoImg {
-    height: 70px !important;
+    padding: 0px 48px 5px !important;
   }
 
   .navLinksList {
-    gap: 26px;
+    gap: 20px;
   }
 
-  .navLinkAnchor {
-    font-size: 0.88rem;
+  .storeBtn {
+    padding: 0 14px;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
+  .navBar {
+    padding: 15px 36px;
+  }
+
+  .transparent {
+    padding: 0px 36px 5px !important;
+  }
+
+  .navLinksList {
+    gap: 12px;
+  }
+
+  .navLinkAnchor {
+    font-size: 0.85rem;
+  }
+
+  .storeBtn {
+    padding: 0 10px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+
+  .storeButtons {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 992px) {
   .navLinksList {
     display: none;
   }
@@ -325,8 +352,8 @@
   }
 }
 
-/* Tablet (768px-900px) button styling */
-@media (max-width: 900px) and (min-width: 768px) {
+/* Tablet (768px-992px) button styling */
+@media (max-width: 992px) and (min-width: 768px) {
   .storeBtn {
     padding: 0 12px;
     font-size: 0.82rem;

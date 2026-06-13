@@ -18,7 +18,13 @@ const usePreScrollClass = (isTransparent) => {
 };
 
 const Navbar = () => {
+  const location = useLocation();
   const [isTransparent, setIsTransparent] = useState(true);
+
+  // Check if current route matches solid pages
+  const isSolidPage = ['/blogs', '/blog', '/events', '/event'].some(path =>
+    location.pathname.startsWith(path)
+  );
 
   // Scroll listener
   useEffect(() => {
@@ -28,10 +34,12 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
+
+  const showTransparent = isTransparent && !isSolidPage;
 
   // Apply body class based on transparency
-  usePreScrollClass(isTransparent);
+  usePreScrollClass(showTransparent);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -45,7 +53,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`${styles.navBar} ${isTransparent ? styles.transparent : ''}`}>
+    <nav className={`${styles.navBar} ${showTransparent ? styles.transparent : ''}`}>
       {/* LEFT — Logo */}
       <Link to="/" className={styles.logoLink} onClick={() => window.scrollTo(0, 0)}>
         <img src={mainlogo} alt="Trusted Network" className={styles.logoImg} />
