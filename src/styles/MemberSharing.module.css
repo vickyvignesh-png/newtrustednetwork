@@ -1,325 +1,216 @@
 /* ============================================
-   MEMBER SHARING — Glow List Card Layout
-   Using EXCLUSIVELY Brand Navy and Gold Colors
+   MEMBER SHARING — Premium Feature Grid
+   Dark navy background with gold accents
    ============================================ */
 
 .shareSection {
   background-color: #0a1628;
+  /* Deep navy */
   padding: 80px 24px;
-  /* py-20 px-6 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
+/* Central container for all content */
 .shareContainer {
-  width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
+}
+
+.sectionLabelWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #C8A951;
+  /* Gold label */
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #C8A951;
+  box-shadow: 0 0 12px rgba(200, 169, 81, 0.4);
+  flex-shrink: 0;
+}
+
+.sectionLabel .line {
+  width: 48px;
+  height: 1.5px;
+  background: rgba(200, 169, 81, 0.7);
+}
+
+.sectionLabel span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1;
 }
 
 .shareTitle {
   font-family: 'Poppins', sans-serif;
   font-size: 36px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 24px;
-  /* increased spacing for premium feel */
 }
 
 .shareDescription {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.70);
-  /* softer white opacity */
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
   max-width: 700px;
-  /* wider for readability */
   margin: 0 auto 48px;
   line-height: 1.6;
 }
 
-/* ============================================
-   PREMIUM LABEL — DOT + LINE + TEXT
-   ============================================ */
-
-.sectionLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
+.headerWrapper {
+  text-align: center;
   margin-bottom: 24px;
 }
 
-.sectionLabel::before {
-  content: "";
-
-  width: 10px;
-  height: 10px;
-
-  border-radius: 50%;
-
-  background: #C8A951;
-
-  box-shadow:
-    0 0 12px rgba(200, 169, 81, 0.4);
-
-  flex-shrink: 0;
-}
-
-/* LABEL CENTER ALIGN */
-
-.sectionLabelWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-/* LINE AFTER DOT */
-.sectionLabel .line {
-  width: 48px;
-  height: 1.5px;
-
-  background:
-    rgba(200, 169, 81, 0.7);
-}
-
-.sectionLabel span {
-  color: #C8A951;
-
-  font-size: 0.9rem;
-  font-weight: 700;
-
-  letter-spacing: 5px;
-  text-transform: uppercase;
-
-  font-family: 'Poppins', sans-serif;
-
-  line-height: 1;
-}
-
-/* 2-column grid layout */
-.shareGrid {
+/* Card grid */
+.cardsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  margin: 60px auto 0;
 }
 
-.shareCard {
+/* Center the last two cards on desktop */
+.card:nth-child(7) {
+  grid-column: 1 / 2;
+}
+
+.card:nth-child(8) {
+  grid-column: 2 / 3;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+/* Row 1 */
+.card:nth-child(1) {
+  grid-column: 1 / span 2;
+}
+
+.card:nth-child(2) {
+  grid-column: 3 / span 2;
+}
+
+.card:nth-child(3) {
+  grid-column: 5 / span 2;
+}
+
+/* Row 2 */
+.card:nth-child(4) {
+  grid-column: 1 / span 2;
+}
+
+.card:nth-child(5) {
+  grid-column: 3 / span 2;
+}
+
+.card:nth-child(6) {
+  grid-column: 5 / span 2;
+}
+
+/* Row 3 - Center */
+.card:nth-child(7) {
+  grid-column: 2 / span 2;
+}
+
+.card:nth-child(8) {
+  grid-column: 4 / span 2;
+}
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    grid-column: auto !important;
+  }
+}
+
+/* Card design */
+.card {
+  background: #0B1F3A;
+  /* Dark navy */
+  border: 1px solid rgba(200, 169, 81, 0.15);
+  /* Subtle gold */
+  border-radius: 18px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   gap: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(200, 160, 60, 0.18);
-  border-radius: 16px;
-  padding: 14px 12px;
-  /* reduced side padding */
-  transition: all 0.3s ease;
-  width: auto;
-  /* shrink to content */
-  max-width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.leftCard {
-  justify-content: flex-end;
-  text-align: right;
-  width: 100%;         /* was 420px — caused overflow */
-  max-width: 100%;
-  margin-left: auto;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border-color: rgba(200, 169, 81, 0.5);
 }
 
-.leftCard .cardTitle {
-  order: 1;
-}
-
-.leftCard .iconBox {
-  order: 2;
-}
-
-.rightCard {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 18px;
-  text-align: left;
-  width: 100%;         /* was 420px — caused overflow */
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.rightCard .iconBox {
-  order: 1;
-}
-
-.rightCard .cardTitle {
-  order: 2;
-  white-space: normal;
-  word-break: break-word;
-  text-align: left;
-}
-
-/* display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 14px;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(200, 160, 60, 0.18);
-  border-radius: 12px;
-  padding: 16px 20px;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s ease;
-  border-left: 3px solid transparent;
-} */
-
-/* On hover style rules */
-.shareCard:hover {
-  border-left: 3px solid #C8A03C;
-  background-color: rgba(200, 160, 60, 0.07);
-  border-color: rgba(200, 160, 60, 0.50);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Left Icon Box */
 .iconBox {
-  width: 58px;
-  height: 58px;
-
+  width: 56px;
+  height: 56px;
   background: rgba(255, 255, 255, 0.08);
-
-  border-radius: 14px;
-
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-  transition: background-color 0.3s ease;
 }
 
 .iconBox svg {
-  color: #D4AF37;
+  color: #C8A951;
+  /* Gold accent */
   font-size: 24px;
 }
 
-.icon {
-  color: #C8A03C;
-  transition: transform 0.3s ease;
-}
-
-.shareCard:hover .icon {
-  transform: scale(1.05);
-}
-
-/* Right Content text details */
-.textDetails {
+.cardContent {
   display: flex;
   flex-direction: column;
 }
 
 .cardTitle {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #ffffff;
   margin: 0;
-  line-height: 1.2;
-  /* Removed white-space: nowrap — was causing text to overflow container */
-  white-space: normal;
-  word-break: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.shareCard:hover .cardTitle {
-  color: #E2B84B;
-}
-
-.cardSubtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.45);
-  margin-top: 4px;
-  margin-bottom: 0;
-}
-
-/* Responsive grid rules */
-@media (max-width: 768px) {
-  .shareGrid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .shareSection {
-    padding: 60px 16px;
-  }
-
-  .leftCard {
-    justify-content: flex-start;
-    text-align: left;
-  }
-
-  .leftCard .cardTitle {
-    order: 2;
-    text-align: left;
-  }
-
-  .leftCard .iconBox {
-    order: 1;
-  }
-
-  .shareTitle {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  .shareDescription {
-    font-size: 14px;
-    margin-bottom: 32px;
-  }
-
-  /* 3-column row stacking & mockup at the bottom override */
-  .sectionLabelWrapper ~ div:last-of-type {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-    width: 100% !important;
-  }
-
-  /* Left column cards wrapper */
-  .sectionLabelWrapper ~ div:last-of-type > div:first-of-type {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    order: 1 !important;
-  }
-
-  /* Right column cards wrapper */
-  .sectionLabelWrapper ~ div:last-of-type > div:last-of-type {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    order: 2 !important;
-  }
-
-  /* Center mockup wrapper */
-  .sectionLabelWrapper ~ div:last-of-type > div:nth-of-type(2) {
-    order: 3 !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin: 20px 0 0 0 !important;
-  }
-
-  .shareCard {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-}
+/* Remove legacy styles */
+/* .shareGrid { display:none; } */
+/* .leftCard, .rightCard { display:none; } */
+/* .honeycombWrapper, .hexCard { display:none; } */

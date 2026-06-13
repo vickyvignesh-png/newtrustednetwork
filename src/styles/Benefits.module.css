@@ -107,13 +107,12 @@
   position: relative;
   background: #ffffff;
   border: 1px solid rgba(200, 169, 81, 0.25);
-  /* Uniform 1px low-opacity gold border on all sides */
   border-radius: 16px;
   padding: 32px 24px;
   text-align: center;
   width: 100%;
-  height: 280px;
-  /* Reduced fixed height for a sleek, compact card shape */
+  min-height: 320px;
+  height: 100%;
   box-sizing: border-box;
 
   /* Flexbox column layout inside card */
@@ -126,7 +125,6 @@
     box-shadow 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
     border-color 0.3s ease;
   box-shadow: 0 4px 12px rgba(6, 21, 43, 0.03);
-  /* Subtle, premium card shadow */
   overflow: hidden;
   cursor: default;
 }
@@ -134,11 +132,8 @@
 /* Premium Minimalist Hover Effect */
 .card:hover {
   transform: translateY(-5px);
-  /* Gentle hover translation */
   box-shadow: 0 12px 24px rgba(6, 21, 43, 0.08);
-  /* Beautiful subtle shadow increase */
   border-color: rgba(200, 169, 81, 0.55);
-  /* Elegant gold border highlight */
 }
 
 /* Simple Premium Icon Container */
@@ -146,9 +141,7 @@
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  /* Sleek rounded-square */
   background: rgba(200, 169, 81, 0.08);
-  /* Very subtle gold tint */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,7 +158,6 @@
 
 .card:hover .iconWrapper {
   background: rgba(200, 169, 81, 0.12);
-  /* Subtle highlight on hover */
 }
 
 /* Title Section using Flexbox */
@@ -176,9 +168,7 @@
   margin-top: 0;
   margin-bottom: 12px;
   color: #06152b;
-  /* Clean Navy text */
   height: 48px;
-  /* Fixed title height to align the description starting position */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,13 +183,10 @@
   color: rgba(6, 21, 43, 0.72);
   margin: 0;
   flex: 1;
-  /* Space-filling flex layout */
   display: flex;
   align-items: flex-start;
-  /* Aligns description to start at identical heights */
   justify-content: center;
   text-align: center;
-  overflow: hidden;
 }
 
 /* ---- MOBILE BREAKPOINTS ---- */
