@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 import { FiUsers, FiDownload, FiArrowRight, FiStar } from 'react-icons/fi';
 import styles from '../styles/Hero.module.css';
 import Statistics from './Statistics';
+import { FiShield } from "react-icons/fi";
 
 // Import images
-import heroBg from '../assets/herosectionbgimg.png';
+import heroBg from '../assets/heromainimg.svg';
 import womanImage from '../assets/ogherosection womenimage (1).svg';
 
 const Hero = () => {
@@ -89,6 +90,13 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
+
+              {/* Floating Badge */}
+              {/* <div className={styles.communityBadge}>
+                <FiShield />
+                <span>India's Trusted Business Community</span>
+              </div> */}
+
               <img
                 src={womanImage}
                 alt="Trusted Network Platform"
