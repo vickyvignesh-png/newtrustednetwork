@@ -22,7 +22,7 @@ const Navbar = () => {
   const [isTransparent, setIsTransparent] = useState(true);
 
   // Check if current route matches solid pages
-  const isSolidPage = ['/blogs', '/blog', '/events', '/event'].some(path =>
+  const isSolidPage = ['/blogs', '/blog', '/events', '/event', '/terms', '/privacy-policy', '/refund'].some(path =>
     location.pathname.startsWith(path)
   );
 
