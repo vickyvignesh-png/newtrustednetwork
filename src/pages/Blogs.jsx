@@ -6,6 +6,7 @@ import BlogCard from '../components/BlogCard';
 import ShowMoreButton from '../components/ShowMoreButton';
 import styles from '../styles/Blog.module.css';
 import heroImg from '../assets/hero_networking.png';
+import { FiChevronRight } from 'react-icons/fi';
 
 const CARDS_PER_ROW = 4;
 // Mobile‑only initial count (show 3 cards on ≤480px)
@@ -38,38 +39,19 @@ const Blogs = () => {
   return (
     <div className={styles.page}>
       {/* Hero Banner */}
-      <section
-        className={styles.hero}
-        style={{ minHeight: '500px' }}
-      >
-        <div className={styles.container}>
-          <div className={styles.left}>
-            <div className={styles.label}>
-              INSIGHTS & ARTICLES
-            </div>
-
-            <h1 className={styles.title}>
-              Trusted Network Blogs
-            </h1>
-
-            <p className={styles.description}>
-              Explore business insights, networking strategies,
-              industry trends, success stories, and professional
-              growth articles from the Trusted Network community.
-            </p>
-
-            <Link to="/blogs" className={styles.cta}>
-              Explore Blogs
-            </Link>
+      <section className={styles.hero}>
+        <div className={styles.heroContainer}>
+          <div className={styles.breadcrumbs}>
+            <Link to="/">Home</Link>
+            <FiChevronRight className={styles.breadcrumbSeparator} />
+            <span>Legal</span>
+            <FiChevronRight className={styles.breadcrumbSeparator} />
+            <span className={styles.breadcrumbActive}>Blogs</span>
           </div>
-
-          <div className={styles.right}>
-            <img
-              src={heroImg}
-              alt="Blogs hero"
-              className={styles.heroImg}
-            />
-          </div>
+          <h1 className={styles.heroTitle}>Blogs</h1>
+          <p className={styles.heroSubtitle}>
+            Explore business insights, networking strategies, industry trends, success stories, and professional growth articles from the Trusted Network community.
+          </p>
         </div>
       </section>
 
