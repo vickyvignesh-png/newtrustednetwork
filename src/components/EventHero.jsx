@@ -1,23 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SectionLabel from './SectionLabel';
 import styles from "../styles/EventHero.module.css";
-import heroImg from "../assets/eventsbanner.jpg"; // placeholder path
+import { FiChevronRight } from 'react-icons/fi';
 
 const EventHero = () => (
   <section className={styles.hero}>
-    <div className={styles.container}>
-      <div className={styles.left}>
-        <SectionLabel label="EVENTS & NETWORKING" />
-        <h2 className={styles.title}>Explore Trusted Network Events</h2>
-        <p className={styles.description}>
-          Join premium business networking meets, startup gatherings, referral events, expos, and professional growth sessions across India.
-        </p>
-        <Link to="#events-list" className={styles.cta}>Explore Events</Link>
+    <div className={styles.heroContainer}>
+      <div className={styles.breadcrumbs}>
+        <Link to="/">Home</Link>
+        <FiChevronRight className={styles.breadcrumbSeparator} />
+        <span>Events & Networking</span>
+        <FiChevronRight className={styles.breadcrumbSeparator} />
+        <span className={styles.breadcrumbActive}>Events & Networking</span>
       </div>
-      <div className={styles.right}>
-        <img src={heroImg} alt="Events hero" className={styles.image} />
-      </div>
+      <h1 className={styles.heroTitle}>Events & Networking</h1>
+      <p className={styles.heroSubtitle}>
+        Explore business insights, networking strategies, industry trends, success stories, and professional growth articles from the Trusted Network community.
+      </p>
     </div>
   </section>
 );
